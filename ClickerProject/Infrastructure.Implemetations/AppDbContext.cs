@@ -13,18 +13,16 @@ namespace ClickerProject.Infrastructure.Implemetations
         {
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(u => u.UserBoosts)
-                .WithOne()
+                .WithOne(ub => ub.User)
                 .HasForeignKey(ub => ub.UserId);
 
             modelBuilder.Entity<Boost>()
                 .HasMany(b => b.UserBoosts)
-                .WithOne()
+                .WithOne(b => b.Boost)
                 .HasForeignKey(ub => ub.BoostId);
 
             modelBuilder.Entity<UserBoost>()
-                .HasNoKey();
-
-
+                .HasKey(ub => new { ub.UserId, ub.BoostId });
 
             base.OnModelCreating(modelBuilder);
         }
