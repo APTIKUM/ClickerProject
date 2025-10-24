@@ -1,0 +1,12 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+<form class="d-flex justify-content-center align-items-center vh-100" asp-action="login" asp-controller="auth" method="post">
+    <div class="d-flex flex-column p-5 rounded light-bg">
+        <input name="username" type="text" />
+        <input name="password" class="mt-2" type="text" />
+        <button type="submit" class="mt-2 btn btn-success">Зарегистрироваться</button>
+        <a href="~/auth/login">вход</a>
+    </div>
+</form>

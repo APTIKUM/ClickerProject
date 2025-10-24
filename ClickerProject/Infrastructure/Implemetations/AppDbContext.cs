@@ -1,9 +1,10 @@
 ﻿using ClickerProject.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClickerProject.Infrastructure.Implemetations
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
